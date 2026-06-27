@@ -33,7 +33,7 @@ async def home():
         <head><title>YouTube Summarizer</title></head>
         <body style="font-family: sans-serif; text-align: center; padding-top: 50px;">
             <h1><span style="color: #ff0000;">▶ </span><span style="border-bottom: 2px solid #777777; padding: 2px;"> TL;DW, an AI YouTube Video Summarizer</span> </h1>
-            <p><span style="border: 1px solid #ff4040; padding: 3px; border-radius: 3px;"> version 1.3.1 (a.k.a. "Fabulously optomized") </p>
+            <p><span style="border: 1px solid #ff4040; padding: 3px; border-radius: 3px;"> version 1.3.1 (a.k.a. "pretty") </p>
             
             <div style="margin-top: 30px;">
                 <input type="text" id="videoUrl" placeholder="Paste your YT link here..." 
