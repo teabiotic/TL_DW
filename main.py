@@ -73,7 +73,7 @@ async def home():
                         return;
                     }
 
-                    resultDiv.innerText = "Downloading video and analyzing content... This can a minute.";
+                    resultDiv.innerText = "Downloading video and analyzing content... This can take a minute.";
                     submitBtn.disabled = true;
 
                     try {
