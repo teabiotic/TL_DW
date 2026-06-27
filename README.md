@@ -4,7 +4,8 @@
 
 ---
 ## Live Demo
-* As of now I am unable to host a demo website without the program breaking, if you want to try it out please follow the instructions and run the program locally. Sorry.
+* As of now I am unable to host a live demo website without the program breaking, if you want to try it out please follow the instructions and run the program locally. Sorry.
+  
 ---
 ## Features
 
