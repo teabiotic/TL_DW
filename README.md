@@ -3,7 +3,9 @@
 **TL;DW (Too Long; Didn't Watch)** is a modern, single-file web application built with Python and FastAPI. It downloads public YouTube videos and processes them through Gemini 2.5 Flash to generate easy-to-read summaries.
 
 ---
-
+## Live Demo
+* As of now I am unable to host a demo website without the program breaking, if you want to try it out please follow the instructions and run the program locally. Sorry.
+---
 ## Features
 
 * True video analysys: instead of giving the llm just the transcryptipon, the program downloads the video in a low quality and then sends it to gemini
