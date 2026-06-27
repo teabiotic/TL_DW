@@ -32,19 +32,19 @@ async def home():
     <html>
         <head><title>YouTube Summarizer</title></head>
         <body style="font-family: sans-serif; text-align: center; padding-top: 50px;">
-            <h1>TL;DW, an AI YouTube Video Summarizer</h1>
-            <p>version 1.3.1 (a.k.a. "Fabulously optomized")</p>
+            <h1><span style="color: #ff0000;">▶ </span><span style="border-bottom: 2px solid #777777; padding: 2px;"> TL;DW, an AI YouTube Video Summarizer</span> </h1>
+            <p><span style="border: 1px solid #ff4040; padding: 3px; border-radius: 3px;"> version 1.3.1 (a.k.a. "Fabulously optomized") </p>
             
             <div style="margin-top: 30px;">
                 <input type="text" id="videoUrl" placeholder="Paste your YT link here..." 
-                       style="width: 350px; padding: 10px; border: 1px solid #ccc; border-radius: 1px; font-size: 16px;">
+                       style="width: 350px; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px;">
                 
-                <button onclick="getSummary()" id="submitBtn" style="padding: 10px 20px; background-color: #ff0000; color: white; border: none; border-radius: 1px; font-size: 16px; cursor: pointer; font-weight: bold; margin-left: 10px;">
+                <button onclick="getSummary()" id="submitBtn" style="padding: 10px 20px; background-color: #ff0000; color: white; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; font-weight: bold; margin-left: 10px;">
                     SUMMARIZE
                 </button>
             </div>
 
-            <div id="result" style="margin-top: 40px; max-width: 600px; margin-left: auto; margin-right: auto; text-align: left; padding: 20px; background: black; border-radius: 8px; color: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div id="result" style="margin-top: 40px; max-width: 600px; margin-left: auto; margin-right: auto; text-align: left; padding: 20px; background: black; border-radius: 5px; color: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
                 the summary will appear here...
             </div>
 
@@ -116,7 +116,7 @@ async def process_summary(data: SummaryRequest):
             " short as possible while still containing all the necessary info. "
             "try to add an empty line between the points. "
             "try not to include sponsors unless necessary, and even if it is "
-            "necessary do not say it's a sponsored video"
+            "necessary do not say it's a sponsored video "
             "do not use any formatting except for the bullet points"
         )
         response = client.models.generate_content(
