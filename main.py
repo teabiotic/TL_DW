@@ -33,7 +33,7 @@ async def home():
         <head><title>YouTube Summarizer</title></head>
         <body style="font-family: sans-serif; text-align: center; padding-top: 50px;">
             <h1>TL;DW, an AI YouTube Video Summarizer</h1>
-            <p>version 1.1 (a.k.a. "something is finally going on")</p>
+            <p>version 1.2 (a.k.a. "I think it's working")</p>
             
             <div style="margin-top: 30px;">
                 <input type="text" id="videoUrl" placeholder="Paste your YT link here..." 
