@@ -33,7 +33,7 @@ async def home():
         <head><title>YouTube Summarizer</title></head>
         <body style="font-family: sans-serif; text-align: center; padding-top: 50px;">
             <h1>TL;DW, an AI YouTube Video Summarizer</h1>
-            <p>version 1.2 (a.k.a. "I think it's working")</p>
+            <p>version 1.3.1 (a.k.a. "Fabulously optomized")</p>
             
             <div style="margin-top: 30px;">
                 <input type="text" id="videoUrl" placeholder="Paste your YT link here..." 
@@ -109,10 +109,15 @@ async def process_summary(data: SummaryRequest):
             raise Exception("Google infrastructure failed to process the video asset.")
             
         prompt = (
-            "Analyze this video and provide a comprehensive summary using highly organized "
-            "bullet points. use up to 10 bullet points and m,ake the answer as"
+            "analyze this video and Highlight in 3 short sentences the main topic, core arguments,"
+            " and critical takeaways, add emty lines between the topic arguments and takeaways"
+            " also Analyze this video and provide a quick summary using highly organized "
+            "bullet points (the format of the points must be '-->'). use up to 10 bullet points and make the answer as"
             " short as possible while still containing all the necessary info. "
-            "Highlight the main topic, core arguments, and critical takeaways."
+            "try to add an empty line between the points. "
+            "try not to include sponsors unless necessary, and even if it is "
+            "necessary do not say it's a sponsored video"
+            "do not use any formatting except for the bullet points"
         )
         response = client.models.generate_content(
             model='gemini-2.5-flash',
