@@ -109,38 +109,25 @@ class SummaryRequest(BaseModel):
 @app.post("/summarize")
 async def process_summary(data: SummaryRequest):
     try:
-        video_path = down_vid(data.url)
-        
         client = genai.Client()
         
-        uploaded_file = client.files.upload(file=video_path)
-        
-        while uploaded_file.state.name == "PROCESSING":
-            time.sleep(2)
-            uploaded_file = client.files.get(name=uploaded_file.name)
-            
-        if uploaded_file.state.name == "FAILED":
-            raise Exception("Google infrastructure failed to process the video asset.")
-            
         prompt = (
             "analyze this video and Highlight in 3 short sentences the main topic, core arguments,"
-            " and critical takeaways, add emty lines between the topic arguments and takeaways"
-            " also Analyze this video and provide a quick summary using highly organized "
-            "bullet points (the format of the points must be '-->'). use up to 10 bullet points and make the answer as"
+            " and critical takeaways, add empty lines between the topic arguments and takeaways. "
+            "also analyze this video and provide a quick summary using highly organized "
+            "bullet points (the format of the points must be '—>'). use up to 10 bullet points and make the answer as"
             " short as possible while still containing all the necessary info. "
             "try to add an empty line between the points. "
             "try not to include sponsors unless necessary, and even if it is "
             "necessary do not say it's a sponsored video "
-            "do not use any formatting except for the bullet points"
-        )
-        response = client.models.generate_content(
-            model='gemini-2.5-flash',
-            contents=[uploaded_file, prompt]
+            "do not use any formatting except for the bullet points "
+            f"Here is the YouTube video link to analyze: {data.url}"
         )
         
-        if os.path.exists(video_path):
-            os.remove(video_path)
-        client.files.delete(name=uploaded_file.name)
+        response = client.models.generate_content(
+            model='gemini-2.5-flash',
+            contents=prompt
+        )
         
         return {"success": True, "summary": response.text}
         
