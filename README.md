@@ -1,6 +1,6 @@
 # 🎥 TL;DW — AI YouTube Video Summarizer
 
-**TL;DW (Too Long; Didn't Watch)** is a modern, single-file web application built with Python and FastAPI. It downloads public YouTube videos and processes them through Gemini 2.5 Flash to generate easy-to-read summaries.
+**TL;DW (Too Long; Didn't Watch)** is a modern, single-file web application built with Python and FastAPI. It processes public YouTube videos through Gemini 2.5 Flash to generate easy-to-read summaries.
 
 ---
 
@@ -10,14 +10,14 @@ Although im not proud of it, I used gemini to help write most of the code.
 
 ## Features
 
-* True video analysys: instead of giving the llm just the transcryptipon, the program downloads the video in a low quality and then sends it to gemini
+* **Full Video Analysis (Not Just Transcripts):** Instead of relying on boring text transcripts or missing subtitle files, it passes the actual `.mp4` video container directly to Gemini 2.5 Flash, allowing the AI to literally *watch* the visuals, charts, and code on screen while *listening* to the audio.
+
 ---
 
 ## Tech Stack & Architecture
 
 * **Backend Framework:** FastAPI (Asynchronous Python Web Server)
 * **Data Validation:** Pydantic (Type Enforcement Schemas)
-* **Media Downloader:** yt-dlp
 * **AI Core Engine:** Google GenAI SDK (`gemini-2.5-flash`)
 
 ---
