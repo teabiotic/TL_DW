@@ -110,7 +110,9 @@ async def process_summary(data: SummaryRequest):
             
         prompt = (
             "Analyze this video and provide a comprehensive summary using highly organized "
-            "bullet points. Highlight the main topic, core arguments, and critical takeaways."
+            "bullet points. use up to 10 bullet points and m,ake the answer as"
+            " short as possible while still containing all the necessary info. "
+            "Highlight the main topic, core arguments, and critical takeaways."
         )
         response = client.models.generate_content(
             model='gemini-2.5-flash',
