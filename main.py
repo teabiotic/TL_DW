@@ -11,18 +11,32 @@ app = FastAPI()
 
 def down_vid(url: str) -> str:
     filename = "video_for_summary.mp4"
+    temp_cookies = "temp_cookies.txt"
     
     if os.path.exists(filename):
         os.remove(filename)
         
+    cookies_content = os.getenv("YT_COOKIES_DATA")
+    
+    if cookies_content:
+        with open(temp_cookies, "w") as f:
+            f.write(cookies_content)
+
     opcje = {
         'format': 'worst[ext=mp4]/mp4', 
         'outtmpl': filename,
-        'quiet': True
+        'quiet': True,
     }
     
-    with yt_dlp.YoutubeDL(opcje) as ydl:
-        ydl.download([url])
+    if os.path.exists(temp_cookies):
+        opcje['cookiefile'] = temp_cookies
+    
+    try:
+        with yt_dlp.YoutubeDL(opcje) as ydl:
+            ydl.download([url])
+    finally:
+        if os.path.exists(temp_cookies):
+            os.remove(temp_cookies)
         
     return filename
 
@@ -59,7 +73,7 @@ async def home():
                         return;
                     }
 
-                    resultDiv.innerText = "Downloading video and analyzing content... This can take up to a minute.";
+                    resultDiv.innerText = "Downloading video and analyzing content... This can a minute.";
                     submitBtn.disabled = true;
 
                     try {
