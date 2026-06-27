@@ -4,7 +4,7 @@
 
 ---
 
-Although im not proud of it, I used gemini to help write most of the code
+Although im not proud of it, I used gemini to help write most of the code.
 
 ---
 
