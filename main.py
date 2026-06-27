@@ -47,7 +47,7 @@ async def home():
         <head><title>YouTube Summarizer</title></head>
         <body style="font-family: sans-serif; text-align: center; padding-top: 50px;">
             <h1><span style="color: #ff0000;">▶ </span><span style="border-bottom: 2px solid #777777; padding: 2px;"> TL;DW, an AI YouTube Video Summarizer</span> </h1>
-            <p><span style="border: 1px solid #ff4040; padding: 3px; border-radius: 3px;"> version 1.4 (a.k.a. "pretty") </p>
+            <p><span style="border: 1px solid #ff4040; padding: 3px; border-radius: 3px;"> version 1.5 (a.k.a. "done") </p>
             
             <div style="margin-top: 30px;">
                 <input type="text" id="videoUrl" placeholder="Paste your YT link here..." 
@@ -58,8 +58,8 @@ async def home():
                 </button>
             </div>
 
-            <div id="result" style="margin-top: 40px; max-width: 600px; margin-left: auto; margin-right: auto; text-align: left; padding: 20px; background: black; border-radius: 5px; color: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-                the summary will appear here...
+            <div id="result" style="margin-top: 40px; max-width: 600px; margin-left: auto; margin-right: auto; text-align: left; padding: 20px; background: #232323; border-radius: 5px; color: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                The summary will appear here...
             </div>
 
             <script>
@@ -69,7 +69,7 @@ async def home():
                     const submitBtn = document.getElementById('submitBtn');
 
                     if (!urlInput) {
-                        alert("Please paste a link first!");
+                        alert("Please paste a link to the video first!");
                         return;
                     }
 
@@ -120,7 +120,7 @@ async def process_summary(data: SummaryRequest):
             uploaded_file = client.files.get(name=uploaded_file.name)
             
         if uploaded_file.state.name == "FAILED":
-            raise Exception("Google infrastructure failed to process the video asset.")
+            raise Exception("Google infrastructure failed to process the video.")
             
         prompt = (
             "analyze this video and Highlight in 3 short sentences the main topic, core arguments,"
@@ -131,7 +131,7 @@ async def process_summary(data: SummaryRequest):
             "try to add an empty line between the points. "
             "try not to include sponsors unless necessary, and even if it is "
             "necessary do not say it's a sponsored video "
-            "do not use any formatting except for the bullet points"
+            "do not use any markdown formatting"
         )
         response = client.models.generate_content(
             model='gemini-2.5-flash',
