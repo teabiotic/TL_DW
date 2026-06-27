@@ -48,3 +48,6 @@
    ```
    Open your browser and navigate to `http://127.0.0.1:8000` to start summarizing!
 
+
+
+* and if u use winslop, i ain't helping you
