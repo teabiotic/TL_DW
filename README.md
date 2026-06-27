@@ -38,6 +38,11 @@
 
 4. **Expose your Gemini API Key:**
    Get a free API key from Google AI Studio and export it to your current shell:
+   * example for **bash/zsh**:
+   ```bash
+   export GEMINI_API_KEY="your_api_key"
+   ```
+   * example for **fish**:
    ```bash
    set -x GEMINI_API_KEY "your_api_key"
    ```
@@ -50,4 +55,4 @@
 
 
 
-* and if u use winslop, i ain't helping you
+* and if u use **winslop**, i ain't helping you
