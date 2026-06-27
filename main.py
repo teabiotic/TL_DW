@@ -80,7 +80,7 @@ async def home():
                         const response = await fetch('/summarize', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ url: urlInput }) // This feeds the URL to your Pydantic model
+                            body: JSON.stringify({ url: urlInput }) 
                         });
 
                         const data = await response.json();
