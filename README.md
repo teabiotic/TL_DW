@@ -6,7 +6,7 @@
 
 ## Features
 
-* True video analysys: instead of giving the llm just the transcryptipon, the program
+* True video analysys: instead of giving the llm just the transcryptipon, the program downloads the video in a low quality and then sends it to gemini
 ---
 
 ## Tech Stack & Architecture
